@@ -1,10 +1,9 @@
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+const jwt = require("jsonwebtoken");
+const User = require("../models/User");
 
 const authenticateUser = async (req, res, next) => {
   try {
-
-    const token = req.header('Authorization').replace('Bearer ', '');
+    const token = req.header("Authorization").replace("Bearer ", "");
 
     const decoded = jwt.verify(token, User.jwtSecretKey);
 
@@ -20,7 +19,7 @@ const authenticateUser = async (req, res, next) => {
 
     next();
   } catch (error) {
-    res.status(401).json({ error: 'Authentication failed' });
+    res.status(401).json({ error: "Authentication failed" });
   }
 };
 
