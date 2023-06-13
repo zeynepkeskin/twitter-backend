@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const errorHandler = require("./middlewares/errorHandler");
 const authenticateUser = require("./middlewares/auth");
 const userController = require("./controllers/userController");
@@ -7,7 +8,7 @@ const tweetController = require("./controllers/tweetController");
 const app = express();
 
 app.use(errorHandler);
-
+app.use(cors());
 app.use(express.json());
 
 const userRoutes = express.Router();
