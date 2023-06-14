@@ -43,7 +43,7 @@ module.exports = {
       // Generate and sign a JWT token
       const token = jwt.sign({ username: user.username }, User.jwtSecretKey);
 
-      res.json({ message: "Authentication successful", token });
+      res.json({ message: "Authentication successful", token, user });
     } catch (error) {
       next(error);
     }
